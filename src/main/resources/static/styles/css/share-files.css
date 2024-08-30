@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 95%;
+    max-width: 800px;
+    padding: 20px; /* Added padding for better spacing */
+    box-sizing: border-box; /* Include padding in the element's width */
+}
+
+/* Box Styles */
+.box {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s, box-shadow 0.5s;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+    margin: auto; /* Center the box horizontally */
+}
+
+/* Headings Styles */
+h1, h2 {
+    color: #e0e0e0;
+    margin-top: 0;
+}
+
+/* Paragraph Styles */
+p {
+    margin: 10px 0;
+}
+
+/* Button Styles */
+button {
+    background-color: #6200ea;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #3700b3;
+    transform: scale(1.05);
+}
+
+/* Input Field Styles */
+input[type="text"] {
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 599px) {
+    .box {
+        width: 100%;
+        box-shadow: none; /* Remove box-shadow for smaller screens */
+    }
+
+    /* Adjust button padding and input field padding on smaller screens */
+    button {
+        padding: 8px 16px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+    }
+}
+
+/* Further Mobile Enhancements */
+@media (max-width: 399px) {
+    .box {
+        padding: 10px; /* Further reduce padding on very small screens */
+    }
+
+    h1, h2 {
+        font-size: 16px; /* Adjust font size for very small screens */
+    }
+
+    p {
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        padding: 6px;
+        font-size: 14px;
+    }
+}
