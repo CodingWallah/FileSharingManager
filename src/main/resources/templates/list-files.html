@@ -33,6 +33,7 @@
                             <td th:text="${file.uploadedBy}">Uploaded By</td>
                             <td>
                                 <form th:action="@{/files/share/{id}(id=${file.id})}" >
+
                                     <button type="submit">Share</button>
                                 </form>
                             </td>

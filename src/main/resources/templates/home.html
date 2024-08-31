@@ -1,16 +1,94 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>File Sharing Application</title>
+
+    <script src="https://kit.fontawesome.com/106a3659bb.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link th:href="@{/styles/css/homestyle.css}" rel="stylesheet" />
+
+    <style media="screen">*,
+    *:before,*:after{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to My Application</h1>
-        <p>Some basic information about the application.</p>
-        <a href="/oauth2/authorization/google" class="button">Sign In with Google</a>
-        <a href="/oauth2/authorization/github" class="button">Sign In with GitHub</a>
-    </header>
+<!-- <nav>
+    <div class="logo">
+        <p>LOGO</p>
+    </div>
+</nav> -->
+<div class="header-test">
+    <h1 class="header-title">File Sharing App</h1>
+    <h3 class="header-line">Effortless Sharing, Boundless Possibilities</h3>
+</div>
+
+<main>
+    <div class="animation-container">
+        <!-- Images of computers -->
+
+        <img th:src="@{/styles/assets/leftpc.png}" alt="Left Computer" class="computer left-computer">
+
+
+        <div class="paper-airplane"></div>
+        <img th:src="@{/styles/assets/rightpc.png}" alt="Right Computer" class="computer right-computer">
+        <!-- Dotted path -->
+        <div class="dotted-path"></div>
+    </div>
+    <!-- <p>Effortlessly share files from one device to another.</p> -->
+</main>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+
+<div class="card-container">
+    <div class="card">
+
+        <div class="card-front">
+            <h3>About</h3><br>
+            <p>Welcome to our innovative file-sharing platform, designed to make transferring files between devices effortless and secure. Whether you're sending documents, photos, videos, or any other type of file, our app provides a seamless experience tailored to your needs.</p>
+            <p>Key Features:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸Fast and Secure Transfers<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸User-Friendly Interface<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸Cross-Platform Compatibility<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸No Size Limits<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔸Real-Time Collaboration<br><br>
+                Discover a new way of sharing files with convenience and security. Join us and start sharing smarter today!</p>
+            <button class="login-btn">Login</button>
+        </div>
+        <div class="card-back">
+            <form>
+                <h3>Login Here</h3>
+                <!--                <label for="username">Username</label>-->
+                <!--                <input type="text" placeholder="Email or Phone" id="username" required>-->
+                <!--                <label for="password">Password</label>-->
+                <!--                <input type="password" placeholder="Password" id="password" required>-->
+                <!--                <button type="submit">Log In</button>-->
+                <div class="social">
+                    <a href="/oauth2/authorization/google" class="go"><i class="fab fa-google"></i> Google</a>
+                    <a href="/oauth2/authorization/github" class="fb"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <p class="about-btn">*back</p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.login-btn').addEventListener('click', function () {
+        document.querySelector('.card').classList.toggle('flipped');
+    });
+    document.querySelector('.about-btn').addEventListener('click', function () {
+        document.querySelector('.card').classList.toggle('flipped');
+    });
+</script>
+
 </body>
 </html>
