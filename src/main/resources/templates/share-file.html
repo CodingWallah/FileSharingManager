@@ -4,39 +4,39 @@
     <title>Share File</title>
     <link rel="icon" type="image/png" th:href="@{images/file-sharing.png}">
     <link th:href="@{/styles/css/share-files.css}" rel="stylesheet" />
-    
- 
 </head>
 <body>
-    <div class="container">
-    
-        <div class="box">
-            <h1>Download File</h1>
-            <p>File Name: <span th:text="${file.fileName}"></span></p>
-            <p>Uploaded By: <span th:text="${file.uploadedBy}"></span></p>
-            <form th:action="@{/files/download/{id}(id=${file.id})}">
-                <button type="submit" >Download File</button>
-            </form>
-        </div>
-
-    
-        <div class="box">
-            <h2>Share This Page</h2>
-            <p>URL: <input type="text" id="shareUrl" th:value="${shareUrl}" readonly/></p>
-            <button onclick="copyToClipboard()">Copy URL</button>
-        </div>
-
-        <a href="/files/home">Back to File List</a>
+<div class="container">
+    <div class="box download-box">
+        <h1>Download Your File</h1>
+        <p>File Name: <span th:text="${file.fileName}"></span></p>
+        <p>Uploaded By: <span th:text="${file.uploadedBy}"></span></p>
+        <form th:action="@{/files/download/{id}(id=${file.id})}">
+            <button type="submit" class="download-button">
+                <i class="fas fa-download"></i> Download File
+            </button>
+        </form>
     </div>
 
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("shareUrl");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("URL copied to clipboard: " + copyText.value);
-        }
-    </script>
+    <div class="box share-box">
+        <h2>Share This Page</h2>
+        <p>URL: <input type="text" id="shareUrl" th:value="${shareUrl}" readonly/></p>
+        <button class="copy-button" onclick="copyToClipboard()">
+            <i class="fas fa-copy"></i> Copy URL
+        </button>
+    </div>
+
+    <a href="/files/home" class="back-link">Back to File List</a>
+</div>
+
+<script>
+    function copyToClipboard() {
+        var copyText = document.getElementById("shareUrl");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        alert("URL copied to clipboard: " + copyText.value);
+    }
+</script>
 </body>
 </html>

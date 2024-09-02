@@ -1,6 +1,6 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@ nav{
     width: 100%;
     height: 75px;
     line-height: 95px;
-    padding: 0px 70px;
+    padding: 0 70px;
     position: fixed;
 }
 
@@ -114,7 +114,7 @@ nav .logo p{
 
 @keyframes draw-path {
     0% {
-        width: 0px;
+        width: 0;
         opacity: 0;
     }
     25% {
@@ -319,26 +319,28 @@ button[type="submit"] {
 .social {
     margin-top: 30px;
     display: flex;
-    /* flex-wrap: wrap;      */
+     flex-wrap: wrap;
 }
 
-.social div {
+.social a {
     margin: 0 5px;
     cursor: pointer;
     width: 150px;
     border-radius: 3px;
-    padding: 5px 10px 10px 5px;
+    /*padding: 5px 10px 10px 5px;*/
+    padding: 10px;
     background-color: rgba(255,255,255,0.27);
     color: #eaf0fb;
+    text-decoration: none;
     text-align: center;
 }
 
-.social .go{
+.social .go {
     width: 100%;
     margin-top: 10px;
     margin-left: 25px;
 }
-.social .fb{
+.social .gitHub{
     width: 100%;
     margin-top: 10px;
     margin-left: 25px;
@@ -348,7 +350,7 @@ button[type="submit"] {
     margin-right: 4px;
 }
 
-.social div:hover {
+.social a:hover {
     background-color: rgba(255, 255, 255, 0.47);
 }
 

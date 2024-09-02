@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
+    font-family: 'Roboto', sans-serif; /* More modern font */
+    background: linear-gradient(to right, #121212, #1e1e1e); /* Gradient background */
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -12,6 +12,7 @@ body {
     overflow: hidden; /* Prevent body scroll */
 }
 
+/* Container Styles */
 .container {
     display: flex;
     flex-direction: column;
@@ -24,26 +25,35 @@ body {
 
 /* Box Styles */
 .box {
-    background-color: #1e1e1e;
-    border-radius: 10px;
+    background-color: #333333;
+    border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
     width: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s, box-shadow 0.5s;
+    transition: transform 0.3s, box-shadow 0.3s;
     box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
     margin: auto; /* Center the box horizontally */
+    position: relative; /* For pseudo-elements */
+}
+
+/* Hover effect */
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
 }
 
 /* Headings Styles */
 h1, h2 {
-    color: #e0e0e0;
+    color: #ffffff;
     margin-top: 0;
+    font-size: 1.5em; /* Adjust font size */
+    font-weight: bold; /* Make headings bold */
 }
 
 /* Paragraph Styles */
 p {
     margin: 10px 0;
+    color: #dddddd;
 }
 
 /* Button Styles */
@@ -51,10 +61,13 @@ button {
     background-color: #6200ea;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
 }
 
 button:hover {
@@ -62,13 +75,36 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Icon Styles */
+button i {
+    font-size: 1.2em;
+}
+
+/* Download button specific styles */
+.download-button {
+    background-color: #03a9f4;
+}
+
+.download-button:hover {
+    background-color: #0288d1;
+}
+
+/* Copy button specific styles */
+.copy-button {
+    background-color: #4caf50;
+}
+
+.copy-button:hover {
+    background-color: #388e3c;
+}
+
 /* Input Field Styles */
 input[type="text"] {
     width: calc(100% - 22px); /* Adjust width to account for padding and border */
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
-    border: 1px solid #333;
-    background-color: #1e1e1e;
+    border: 1px solid #444;
+    background-color: #222;
     color: #ffffff;
     box-sizing: border-box; /* Ensure padding is included in the total width */
     margin-bottom: 10px;
@@ -83,35 +119,48 @@ input[type="text"] {
 
     /* Adjust button padding and input field padding on smaller screens */
     button {
-        padding: 8px 16px;
+        padding: 10px 20px;
     }
 
     input[type="text"] {
-        padding: 8px;
+        padding: 10px;
     }
 }
 
 /* Further Mobile Enhancements */
 @media (max-width: 399px) {
     .box {
-        padding: 10px; /* Further reduce padding on very small screens */
+        padding: 15px; /* Further reduce padding on very small screens */
     }
 
     h1, h2 {
-        font-size: 16px; /* Adjust font size for very small screens */
+        font-size: 18px; /* Adjust font size for very small screens */
     }
 
     p {
-        font-size: 14px; /* Adjust font size for better readability */
+        font-size: 16px; /* Adjust font size for better readability */
     }
 
     button {
-        padding: 6px 12px;
+        padding: 8px 16px;
         font-size: 14px;
     }
 
     input[type="text"] {
-        padding: 6px;
+        padding: 8px;
         font-size: 14px;
     }
+}
+
+/* Back Link Styles */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #6200ea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: #3700b3;
 }
