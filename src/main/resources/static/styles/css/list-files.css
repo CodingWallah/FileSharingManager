@@ -283,3 +283,43 @@ body {
 .delete-button:hover {
     color: darkred; /* Adjust hover color as needed */
 }
+
+/* Ensure that only 4 files are visible at a time, with scrolling enabled if more files are present */
+.uploaded-files-container .table-wrapper {
+    max-height: 200px; /* Adjust the height as needed to fit 4 rows */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.uploaded-files-container .uploaded-files-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.uploaded-files-container .uploaded-files-table th,
+.uploaded-files-container .uploaded-files-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.uploaded-files-container .scroll-enabled {
+    border-top: 1px solid #ddd;
+}
+
+/* Scrollbar styling (optional) */
+.uploaded-files-container .table-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.uploaded-files-container .table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.uploaded-files-container .table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.uploaded-files-container .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
