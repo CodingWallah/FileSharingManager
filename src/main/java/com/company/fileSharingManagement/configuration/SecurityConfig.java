@@ -19,7 +19,7 @@ public class SecurityConfig {
 
         })
                 .oauth2Login(oauth2Login -> oauth2Login
-                        .loginPage("/files") // Custom login page
+                        .loginPage("/files") // Custom login file upload path 
                         .successHandler(customSuccessHandler())
                 )
                 .csrf(csrf -> csrf.disable()); // Disable CSRF for simplicity; use it in production.
