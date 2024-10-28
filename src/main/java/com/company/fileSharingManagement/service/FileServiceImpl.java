@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.company.fileSharingManagement.entity.FileEntity;
+import com.company.fileSharingManagement.exception.FileNotFoundException;
 import com.company.fileSharingManagement.model.FileModel;
 import com.company.fileSharingManagement.repository.FileRepository;
-import com.company.fileSharingManagement.exception.FileNotFoundException;
 
 @Service
 public class FileServiceImpl implements FileService {   
@@ -27,6 +27,7 @@ public class FileServiceImpl implements FileService {
 
  
 
+    @Override
     public ResponseEntity<?> uploadFile(MultipartFile file, String uploadedBy) throws IOException {
      
 
@@ -41,7 +42,7 @@ public class FileServiceImpl implements FileService {
         BeanUtils.copyProperties(fileEntity, fileModel);
         return ResponseEntity.ok().body(fileModel);
     }
-
+    @Override
     public ResponseEntity<?> getFile(int id)  {
         Optional<FileEntity> fileEntityOptional = fileRepository.findById(id);
 
@@ -57,7 +58,7 @@ public class FileServiceImpl implements FileService {
             throw new FileNotFoundException("File not found");
         }
     }
-
+    @Override
     public ResponseEntity<?> deleteFile(int id) {
 
         Optional <FileEntity> entity = fileRepository.findById(id);
@@ -70,14 +71,13 @@ public class FileServiceImpl implements FileService {
         }
 
     }
-
+    @Override
     @Scheduled(cron = "0 0 * * * *") 
     public void deleteExpiredFiles() {
         List<FileEntity> expiredFiles = fileRepository.findByExpiryTimeBefore(LocalDateTime.now());
         expiredFiles.forEach(fileRepository::delete);
         System.out.println("Deleted expired files at: " + LocalDateTime.now());
     }
-
 
     private FileModel convertToModel(FileEntity entity) {
         FileModel model = new FileModel();
